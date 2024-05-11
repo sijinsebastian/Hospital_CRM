@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Hospital_CRM SAM Template for Hospital_CRM which is a Serverless API
+  for managing patients and staff.
+
+  '
+Globals:
+  Function:
+    Timeout: 10
+Resources:
+  PatientManagement:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://hospital-crm/101b4cb55b6c2445a2a9fc5820a31f44
+      Handler: app.app
+      Runtime: python3.10
+      Events:
+        GetPatients:
+          Type: Api
+          Properties:
+            Path: /patients
+            Method: get
+        GetPatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: get
+        CreatePatients:
+          Type: Api
+          Properties:
+            Path: /patients
+            Method: post
+        UpdatePatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: put
+        DeletePatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: delete
+    Metadata:
+      SamResourceId: PatientManagement
+Outputs:
+  PatientManagementApi:
+    Description: API Gateway endpoint URL for Prod stage for Patient Management function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/patients/
+  PatientManagementFunction:
+    Description: Patient Management Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - PatientManagement
+      - Arn

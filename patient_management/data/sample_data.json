@@ -1,0 +1,28 @@
+{
+    "medical_conditions": [
+        {"medical_condition_id": "9f9b0fd9-60c3-4d1b-91d7-931dc243678e", "name": "Duchenne Muscular Dystrophy", "abbreviation": "DMD"},
+        {"medical_condition_id": "1ef67847-5b0e-48f1-aa51-310e4240ba6c", "name": "Glioblastoma", "abbreviation": "GBM"},
+        {"medical_condition_id": "77872e12-fa47-4f70-a564-f471cf160a80", "name": "Idiopathic Pulmonary Fibrosis", "abbreviation": "IPF"}
+    ],
+    "hospitals": [
+        {"hospital_id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d", "name": "City Hospital", "city": "New York"},
+        {"hospital_id": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d", "name": "General Hospital", "city": "Los Angeles"}
+    ],
+    "persons": [
+        {"person_id": "e5c901e8-155f-4ab6-b3a1-3fddac4182e1", "firstname": "John", "lastname": "Doe", "email": "john.doe@example.com", "contact_type": "patient"},
+        {"person_id": "3b59d79a-3e62-4e47-83c0-d3e38b4cc979", "firstname": "Jane", "lastname": "Smith", "email": "jane.smith@example.com", "contact_type": "patient"},
+        {"person_id": "c1dab30e-7bcb-4a53-af7e-43dc95b99b29", "firstname": "Dr. Alice", "lastname": "Johnson", "email": "alice.johnson@clinic.com", "contact_type": "physician"}
+    ],
+    "physicians": [
+        {"physician_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6", "person_id": "c1dab30e-7bcb-4a53-af7e-43dc95b99b29", "job_title": "Cardiologist", "specialization": "Cardiology",
+        "medical_license_number": "MD123456", "hospital_id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d", "key": "Physician001"}
+    ],
+    "patients": [
+      {"patient_id": "6a7b0bb5-bb18-4e51-b530-0e118e6936a1", "person_id": "e5c901e8-155f-4ab6-b3a1-3fddac4182e1", "medical_condition_id": "9f9b0fd9-60c3-4d1b-91d7-931dc243678e",
+       "first_contact_date": "2024-04-01T09:00:00.000Z", "initial_consult_date": "2024-04-10T10:30:00.000Z", "trial_id": "TRIAL001", "eligible": "Yes",
+       "ineligible_reason": "", "physician_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"},
+      {"patient_id": "4d4f60a1-65de-4b90-995e-786abba01e8d", "person_id": "3b59d79a-3e62-4e47-83c0-d3e38b4cc979", "medical_condition_id": "1ef67847-5b0e-48f1-aa51-310e4240ba6c",
+       "first_contact_date": "2024-04-05T11:15:00.000Z", "initial_consult_date": "2024-04-12T09:45:00.000Z", "trial_id": "TRIAL002", "eligible": "No",
+       "ineligible_reason": "Ineligible reason", "physician_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6"}
+    ]
+}

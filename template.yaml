@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Hospital_CRM
+  SAM Template for Hospital_CRM which is a Serverless API for managing patients and staff.
+
+Globals:
+  Function:
+    Timeout: 10
+
+Resources:
+  PatientManagement:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: patient_management/
+      Handler: app.app
+      Runtime: python3.10
+      Events:
+        GetPatients:
+          Type: Api
+          Properties:
+            Path: /patients
+            Method: get
+        GetPatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: get
+        CreatePatients:
+          Type: Api
+          Properties:
+            Path: /patients
+            Method: post
+        UpdatePatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: put
+        DeletePatient:
+          Type: Api
+          Properties:
+            Path: /patients/{id}
+            Method: delete
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  PatientManagementApi:
+    Description: API Gateway endpoint URL for Prod stage for Patient Management function
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/patients"
+  PatientManagementFunction:
+    Description: Patient Management Lambda Function ARN
+    Value: !GetAtt PatientManagement.Arn
+  # PatientManagementFunctionIamRole:
+  #   Description: Implicit IAM Role created for Patient Management function
+  #   Value: !GetAtt PatientManagementFunctionRole.Arn
