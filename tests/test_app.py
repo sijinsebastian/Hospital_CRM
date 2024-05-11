@@ -49,17 +49,4 @@ def test_update_patient(test_client):
 
 def test_delete_patient(test_client):
     response = test_client.delete('/patients/6a7b0bb5-bb18-4e51-b530-0e118e6936a1')
-    assert response.status_code == 204
-
-
-
-curl -X GET https://j53d44ee5e.execute-api.eu-west-3.amazonaws.com/Prod/patients
-
-
-curl -X GET https://j53d44ee5e.execute-api.eu-west-3.amazonaws.com/Prod/patients/{6a7b0bb5-bb18-4e51-b530-0e118e6936a1}
-
-curl -X POST -H "Content-Type: application/json" -d '{"person_id": "...", "medical_condition_id": "...", "first_contact_date": "...", "initial_consult_date": "...", "trial_id": "...", "eligible": "...", "ineligible_reason": "...", "physician_id": "..."}' https://j53d44ee5e.execute-api.eu-west-3.amazonaws.com/Prod/patients
-
-curl -X PUT -H "Content-Type: application/json" -d '{"trial_id": "TRIAL002"}' https://j53d44ee5e.execute-api.eu-west-3.amazonaws.com/Prod/patients/{6a7b0bb5-bb18-4e51-b530-0e118e6936a1}
-
-curl -X DELETE https://j53d44ee5e.execute-api.eu-west-3.amazonaws.com/Prod/patients/{6a7b0bb5-bb18-4e51-b530-0e118e6936a1}
+    assert response.status_code == 200

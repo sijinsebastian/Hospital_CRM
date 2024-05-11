@@ -8,9 +8,11 @@ This serverless application is designed to manage patient records within a hospi
 
 
 ## Deploy the application on AWS
+
+Clone the project and run the below commands in the root directory
 ```bash
-sam build 
-sam deploy 
+sam build
+sam deploy
 ```
 The deployment output contains the API Gateway endpoint URL. Use it to access the below endpoints:
 - **GetPatients:** `GET /patients`
@@ -23,6 +25,12 @@ A sample api call:
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
+
+To teardown the resources afterwards:
+```bash
+sam delete
+```
+
 ## Run locally
 
 1. Install dependencies
@@ -31,9 +39,9 @@ pip install -r patient_management/requirements.txt
 ```
 2. Start the application
 ```bash
-python patient_mangement/app.py
+python patient_management/app.py
 ```
-3. Use the flask endpoint for performing CRUD operations
+3. Use the flask endpoints for performing CRUD operations
 
 ## Running unit tests
 
